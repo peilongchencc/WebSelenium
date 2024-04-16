@@ -4,8 +4,9 @@ from loguru import logger
 
 class WebSeleniumBase:
     def __init__(self):
+        """配置浏览器,开启浏览器"""
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        options.add_argument('--headless')  # 无GUI界面启动浏览器
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--no-sandbox')
 
@@ -17,7 +18,7 @@ class WebSeleniumBase:
             self.close_driver()
 
     def fetch_webpage_content(self, url):
-        """这个方法应由子类实现具体逻辑"""
+        """爬取网页正文,这个方法应由子类实现具体逻辑"""
         raise NotImplementedError("This method should be overridden by subclasses")
 
     def close_driver(self):
