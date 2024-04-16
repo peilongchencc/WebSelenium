@@ -13,6 +13,7 @@ sys.path.append(project_root_directory)
 from scraper.baidu.baiduscraper import BaiduScraper
 from url_utils.url_parse import ensure_https
 from loguru import logger
+import time
 
 # 设置日志
 logger.remove()
@@ -32,4 +33,8 @@ def test_baidu_scraper():
         logger.info(item)
 
 if __name__ == "__main__":
+    start_time = time.time() 
     test_baidu_scraper()
+    end_time = time.time() 
+    execution_time = end_time - start_time 
+    logger.info(f"执行时间为：{execution_time} 秒")

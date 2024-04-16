@@ -13,6 +13,7 @@ sys.path.append(project_root_directory)
 from scraper.baijiahao.baijiahaoscraper import BaijiahaoScraper
 from url_utils.url_parse import ensure_https
 from loguru import logger
+import time
 
 # 设置日志
 logger.remove()
@@ -29,4 +30,8 @@ def test_baijiahao_scraper():
     logger.info(f"Content: {type(items)}")
 
 if __name__ == "__main__":
+    start_time = time.time() 
     test_baijiahao_scraper()
+    end_time = time.time() 
+    execution_time = end_time - start_time 
+    logger.info(f"执行时间为：{execution_time} 秒")
