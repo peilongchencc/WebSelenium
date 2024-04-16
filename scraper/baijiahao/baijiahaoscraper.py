@@ -26,4 +26,5 @@ class BaijiahaoScraper(WebSeleniumBase):
             text = content.text
         except NoSuchElementException as e:
             logger.error(f"元素未找到: {str(e)}")
+            text = f"元素未找到: {str(e)}"
         return text

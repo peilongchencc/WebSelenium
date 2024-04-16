@@ -40,7 +40,10 @@ class BaiduScraper(WebSeleniumBase):
                 items.append({'text': item_text, 'href': item_href})
         except NoSuchElementException as e:
             logger.error(f"元素未找到: {str(e)}")
+            # 报错只是追加为空,避免程序中断
+            items.append({'text': '', 'href': ''})
         except WebDriverException as e:
             logger.error(f"在点击'换一换'后, 发生错误: {str(e)}")
-        
+            # 报错只是追加为空,避免程序中断
+            items.append({'text': '', 'href': ''})
         return items
