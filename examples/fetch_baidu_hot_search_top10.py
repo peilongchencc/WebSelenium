@@ -10,7 +10,7 @@ project_root_directory = os.path.dirname(os.path.dirname(current_script_path))
 # 将这个目录添加到 sys.path
 sys.path.append(project_root_directory)
 
-from baidu_scraper.baiduscraper import BaiduScraper
+from scraper.baidu.baiduscraper import BaiduScraper
 from url_utils.url_parse import ensure_https
 from loguru import logger
 
