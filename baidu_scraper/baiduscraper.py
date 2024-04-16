@@ -1,4 +1,4 @@
-from ..web_selenium_base_class.web_selenium_base import WebSeleniumBase
+from web_selenium_base_class.web_selenium_base import WebSeleniumBase
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
 from loguru import logger
@@ -12,7 +12,7 @@ class BaiduScraper(WebSeleniumBase):
             # 爬取百度热搜
             items = self._fetch_hot_search()
         except WebDriverException as e:
-            logger.error(f"在使用Selenium时发生错误：{str(e)}")
+            logger.error(f"在使用Selenium获取baidu网页内容时发生错误：{str(e)}")
             return None, []
         finally:
             self.close_driver()

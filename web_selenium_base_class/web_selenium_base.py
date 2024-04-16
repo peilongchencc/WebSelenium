@@ -12,10 +12,9 @@ class WebSeleniumBase:
 
         try:
             self.driver = webdriver.Chrome(options=options)
+            logger.info("chrome浏览器启动成功!!!!")
         except WebDriverException as e:
-            logger.error(f"在使用Selenium时发生错误：{str(e)}")
-            # chrome启动失败也要注意检查浏览器是否正常关闭,确保不对下一次访问造成影响。
-            self.close_driver()
+            logger.error(f"基类中启动chrome时发生错误：{str(e)}")
 
     def fetch_webpage_content(self, url):
         """爬取网页正文,这个方法应由子类实现具体逻辑"""
@@ -25,3 +24,4 @@ class WebSeleniumBase:
         """关闭浏览器"""
         if self.driver:
             self.driver.quit()
+            logger.info("chrome浏览器成功关闭!!!!")

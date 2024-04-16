@@ -1,4 +1,4 @@
-from ..web_selenium_base_class.web_selenium_base import WebSeleniumBase
+from web_selenium_base_class.web_selenium_base import WebSeleniumBase
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, WebDriverException
 from loguru import logger
@@ -12,7 +12,7 @@ class BaijiahaoScraper(WebSeleniumBase):
             # 爬取百家号
             items = self._fetch_content()
         except WebDriverException as e:
-            logger.error(f"在使用Selenium时发生错误：{str(e)}")
+            logger.error(f"在使用Selenium获取baijiahao网页内容时发生错误：{str(e)}")
             return None, []
         finally:
             self.close_driver()
@@ -26,7 +26,4 @@ class BaijiahaoScraper(WebSeleniumBase):
             text = content.text
         except NoSuchElementException as e:
             logger.error(f"元素未找到: {str(e)}")
-        except WebDriverException as e:
-            logger.error(f"在点击'换一换'后, 发生错误: {str(e)}")
-        
         return text

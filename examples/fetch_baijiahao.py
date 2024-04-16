@@ -1,5 +1,5 @@
 """
-Description: 测试从百度主页(未登录状态)爬取百度热搜前10。
+Description: 测试从百家号(未登录状态)获取网页标题和网页文本。
 """
 import sys
 import os
@@ -10,7 +10,7 @@ project_root_directory = os.path.dirname(os.path.dirname(current_script_path))
 # 将这个目录添加到 sys.path
 sys.path.append(project_root_directory)
 
-from baidu_scraper.baiduscraper import BaiduScraper
+from baijiahao_scraper.baijiahaoscraper import BaijiahaoScraper
 from url_utils.url_parse import ensure_https
 from loguru import logger
 
@@ -18,18 +18,15 @@ from loguru import logger
 logger.remove()
 logger.add("selenium_data.log", rotation="1 GB", backtrace=True, diagnose=True, format="{time} {level} {message}")
 
-def test_baidu_scraper():
-    # 百度URL
-    url = "https://www.baidu.com/"
-    # url = "www.baidu.com/"
+def test_baijiahao_scraper():
+    url = "https://baijiahao.baidu.com/s?id=1796368810044659826&wfr=spider&for=pc"
     # 检查一个 URL 是否包含协议，并在没有协议的情况下添加 "https://"。
     checked_url = ensure_https(url)
-    scraper = BaiduScraper()
+    scraper = BaijiahaoScraper()
     title, items = scraper.fetch_webpage_content(checked_url)
-    logger.info("网页标题:", title)
-    logger.info("百度热搜项目:")
-    for item in items:
-        logger.info(item)
+    logger.info(f"Title: {title}")
+    logger.info(f"Content: {items}")
+    logger.info(f"Content: {type(items)}")
 
 if __name__ == "__main__":
-    test_baidu_scraper()
+    test_baijiahao_scraper()
