@@ -14,5 +14,9 @@
 ## 使用教程:
 
 1. 安装selenium。
+
 2. 安装Chrome driver。
+
+   安装Chrome driver教程可参考[这里](https://github.com/peilongchencc/selenium_data/tree/main/browser_driver)。<br>
+
 3. 运行examples下的文件，或参考examples下的文件编写适合自己场景的代码。
