@@ -3,17 +3,18 @@ from selenium.common.exceptions import WebDriverException
 from loguru import logger
 
 class WebSeleniumBase:
-    def __init__(self):
+    def __init__(self, options=None):
         """配置浏览器,开启浏览器"""
-        options = webdriver.ChromeOptions()
-        options.add_argument('--headless')  # 无GUI界面启动浏览器
-        options.add_argument('--disable-dev-shm-usage')
-        options.add_argument('--no-sandbox')
-
+        if options is None:
+            options = webdriver.ChromeOptions()
+            options.add_argument('--headless')  # 无GUI界面启动浏览器
+            options.add_argument('--disable-dev-shm-usage')
+            options.add_argument('--no-sandbox')
+        
         try:
             self.driver = webdriver.Chrome(options=options)
             logger.info("chrome浏览器启动成功!!!!")
-        except WebDriverException as e:
+        except Exception as e:
             logger.error(f"基类中启动chrome时发生错误：{str(e)}")
 
     def fetch_webpage_content(self, url):
