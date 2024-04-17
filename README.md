@@ -18,6 +18,7 @@
 百度百科    | "https://baike.baidu.com/item/花卉/229536"                                    | ✅
 百家号     | "https://baijiahao.baidu.com/s?id=1796368810044659826&wfr=spider&for=pc"      | ✅
 CSDN      | "https://blog.csdn.net/weixin_43958105/article/details/114012590"             | ✅
+澎湃新闻    | "https://www.thepaper.cn/newsDetail_forward_27031399"                         | ✅
 
 
 ## 使用教程:
