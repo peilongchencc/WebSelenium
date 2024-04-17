@@ -11,8 +11,6 @@ Notes:
 必要性: URL编码的主要目的是确保URL中的特殊字符和非ASCII字符能够被正确传输和解析,同时也能够避免一些潜在的安全问题。
 """
 import urllib.parse
-from urllib.parse import urlparse
-
 from urllib.parse import urlparse, urlunparse
 
 def ensure_https(url):
