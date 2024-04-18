@@ -71,18 +71,6 @@ class BaiduSearchScraper(WebSeleniumBase):
             logger.error(f"元素未找到: {str(e)}")
         return fetched_content
 
-    # def crawl_text_content(self, hyperlink):
-    #     """根据网址爬取文本内容
-    #     """
-    #     crawl_content = {}
-    #     self.driver.get(hyperlink)
-    #     self.driver.implicitly_wait(5)
-    #     # 百度搜索引擎的部分网址为"重定向链接"("redirected_link"),不是"实际链接"("direct_link")。
-    #     direct_link = self.driver.current_url
-    #     logger.info(f"实际链接为:{direct_link}")
-    #     return crawl_content
-
-
     def crawl_text_content(self, hyperlink):
         """根据网址爬取文本内容
         """
