@@ -10,16 +10,13 @@ class BaijiahaoScraper(WebSeleniumBase):
             self.driver.implicitly_wait(5)
             title = self.driver.title
             # 爬取百家号
-            items = self._fetch_content()
+            items = self.fetch_content()
         except WebDriverException as e:
             logger.error(f"在使用Selenium获取baijiahao网页内容时发生错误：{str(e)}")
             return None, []
-        finally:
-            self.close_driver()
-
         return title, items
 
-    def _fetch_content(self):
+    def fetch_content(self):
         try:
             # 定位百家号的正文
             content = self.driver.find_element(By.CLASS_NAME, "_18p7x")

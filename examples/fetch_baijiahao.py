@@ -19,12 +19,36 @@ import time
 logger.remove()
 logger.add("selenium_data.log", rotation="1 GB", backtrace=True, diagnose=True, format="{time} {level} {message}")
 
+from selenium import webdriver
+
+def open_driver():
+    """开启浏览器"""
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')  # 无GUI界面启动浏览器
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--no-sandbox')
+    options.page_load_strategy = 'eager'    # 为提高爬取效率，默认采用低资源方式加载界面。
+
+    try:
+        driver = webdriver.Chrome(options=options)
+        logger.info("chrome浏览器启动成功!!!!")
+    except Exception as e:
+        logger.error(f"基类中启动chrome时发生错误：{str(e)}")
+    return driver
+
+def close_driver(driver):
+    """关闭浏览器"""
+    driver.quit()
+    logger.info("chrome浏览器成功关闭!!!!")
+
 def test_baijiahao_scraper():
-    url = "https://baijiahao.baidu.com/s?id=1796368810044659826&wfr=spider&for=pc"
+    url = "https://baijiahao.baidu.com/s?id=1796366989241665731&wfr=spider&for=pc"
     # 检查一个 URL 是否包含协议，并在没有协议的情况下添加 "https://"。
     checked_url = ensure_https(url)
-    scraper = BaijiahaoScraper()
+    chrome_driver = open_driver()
+    scraper = BaijiahaoScraper(chrome_driver)
     title, items = scraper.fetch_webpage_content(checked_url)
+    close_driver(chrome_driver)
     logger.info(f"Title: {title}")
     logger.info(f"Content: {items}")
     logger.info(f"Content: {type(items)}")
