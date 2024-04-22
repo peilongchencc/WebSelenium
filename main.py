@@ -3,9 +3,6 @@ Author: peilongchencc@163.com
 Description: 利用百度搜索引擎,连网获取相关内容。
 Notes: 
 """
-"""
-Description: 测试从百度百科获取网页标题和网页文本。
-"""
 from web_selenium_base_class.web_selenium_base import WebSeleniumBase
 from domain_map.domain_map_strategy import crawler_map
 from url_utils.url_parse import ensure_https, extract_domain_from_url
@@ -29,6 +26,12 @@ class BaiduSearchScraper(WebSeleniumBase):
         options.add_argument('--headless')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--no-sandbox')
+        
+        # 禁用图片和不必要的CSS/JavaScript来进一步提速(笔者并没有感到这部分提速了,暂时注释,有空看下这部分参数设计。)
+        # options.add_argument('--blink-settings=imagesEnabled=false')
+        # options.add_argument('--disable-gpu')
+        # options.add_argument('--disable-extensions')
+
         options.page_load_strategy = 'eager'  # 默认是normal模式
         try:
             self.driver = webdriver.Chrome(options=options)
@@ -116,7 +119,8 @@ class BaiduSearchScraper(WebSeleniumBase):
 if __name__ == "__main__":
     start_time = time.time()
     baidu_search = BaiduSearchScraper()
-    rtn = baidu_search.fetch_webpage_content("澳亿万富豪之女在悉尼袭击案中遇害")
+    # rtn = baidu_search.fetch_webpage_content("澳亿万富豪之女在悉尼袭击案中遇害")
+    rtn = baidu_search.fetch_webpage_content("广州天河驾车撞人案罪犯被执行死刑")
     logger.info(f"百度搜索的结果为:{rtn}")
     end_time = time.time() 
     execution_time = end_time - start_time 

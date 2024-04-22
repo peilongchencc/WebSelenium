@@ -9,6 +9,7 @@ sys.path.append(project_root_directory)
 
 from url_utils.url_parse import extract_domain_from_url
 
-url = "https://www.thepaper.cn/newsDetail_forward_27031399"
+# url = "https://www.thepaper.cn/newsDetail_forward_27031399"
+url = "https://github.com/trending/python?since=daily"
 domain = extract_domain_from_url(url)
 print(f"{url} 的域名为:\n{domain}")
