@@ -1,14 +1,7 @@
 """
-Description: 通过selenium 4获取网页的标题和内容。
+Description: 爬虫类主函数测试code。
 Notes: 
-# 尝试抓取 p 标签的文本
-p_tags = box.find_elements(By.CSS_SELECTOR, "p")
-if p_tags:  # 如果找到 p 标签
-    p_text = p_tags[0].text  # 取第一个 p 标签的文本
-else:
-    p_text = "无相关描述"  # 如果没有找到 p 标签，可以设定一个默认文本
 """
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import WebDriverException
