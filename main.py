@@ -57,7 +57,6 @@ class BaiduSearchScraper(WebSeleniumBase):
             return None, []
         finally:
             self.close_driver()
-
         return items
 
     def fetch_content(self):
@@ -119,8 +118,7 @@ class BaiduSearchScraper(WebSeleniumBase):
 if __name__ == "__main__":
     start_time = time.time()
     baidu_search = BaiduSearchScraper()
-    # rtn = baidu_search.fetch_webpage_content("澳亿万富豪之女在悉尼袭击案中遇害")
-    rtn = baidu_search.fetch_webpage_content("广州天河驾车撞人案罪犯被执行死刑")
+    rtn = baidu_search.fetch_webpage_content("澳亿万富豪之女在悉尼袭击案中遇害")
     logger.info(f"百度搜索的结果为:{rtn}")
     end_time = time.time() 
     execution_time = end_time - start_time 

@@ -31,7 +31,29 @@ github每日热门项目    | "https://github.com/trending/python?since=daily"  
 
    安装Chrome driver教程可参考[这里](https://github.com/peilongchencc/selenium_data/tree/main/browser_driver)。<br>
 
-3. 运行examples下的文件，或参考examples下的文件编写适合自己场景的代码。
+3. 运行下列指令，安装依赖项。
+
+```bash
+pip install -r requirements.txt
+```
+
+4. 更改 `main.py` 中的查找项。
+
+```python
+if __name__ == "__main__":
+    start_time = time.time()
+    baidu_search = BaiduSearchScraper()
+    # 更改为你要查询的内容
+    rtn = baidu_search.fetch_webpage_content("澳亿万富豪之女在悉尼袭击案中遇害")
+    logger.info(f"百度搜索的结果为:{rtn}")
+    end_time = time.time() 
+    execution_time = end_time - start_time 
+    logger.info(f"执行时间为：{execution_time} 秒")
+```
+
+5. 运行 `main.py` 文件。
+
+运行 `main.py` 文件后，会在项目根目录下自动生成 `baidu_search_result.log` 文件，爬取的内容将会写入其中。每次运行 `main.py` 文件，新的log信息会追加写入。<br>
 
 
 ## 网址爬取测试:
@@ -79,9 +101,9 @@ class BaiduSearchScraper(WebSeleniumBase):
 
 项目使用的selenium，selenium为同步操作，单个网页爬取的耗时一般在2s内，如果网页内容特别多，耗时会增加(例如百科类网址)。<br>
 
-2. 采用你的代码后，爬取对应网址的耗时严重，竟然需要133s。要如何解决？
+2. 采用你的代码后，爬取对应网址的耗时严重，要如何解决？
 
-selenium的网页加载策略默认是等待网页内容全部加载结束，对于需要加载内容非常多的网址，需要更改网页加载策略。具体代码可参考 `scraper/csdn/csdnscraper.py`。<br>
+selenium的网页加载策略笔者已经采用低资源模式了，如果耗时依旧严重，大家可以查看selenium的官网或chrome的开发网站寻找合适的参数。或者直接换异步框架(如 playwright)。<br>
 
 3. 不能抓取目标网站的图片、视频吗？
 
