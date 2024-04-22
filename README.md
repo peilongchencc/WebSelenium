@@ -53,6 +53,10 @@ if __name__ == "__main__":
 
 5. 运行 `main.py` 文件。
 
+```bash
+python main.py
+```
+
 运行 `main.py` 文件后，会在项目根目录下自动生成 `baidu_search_result.log` 文件，爬取的内容将会写入其中。每次运行 `main.py` 文件，新的log信息会追加写入。<br>
 
 
