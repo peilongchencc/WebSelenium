@@ -11,7 +11,6 @@
   - [不可以单独使用 `asyncio` 构建 selenium 的异步吗？](#不可以单独使用-asyncio-构建-selenium-的异步吗)
 
 
-
 ## ThreadPoolExecutor 和 ProcessPoolExecutor 是什么？
 
 `ThreadPoolExecutor` 和 `ProcessPoolExecutor` 都是 Python `concurrent.futures` 模块中的类，用于简化多线程和多进程编程。这两个执行器（Executor）提供了一个高层次的接口来异步执行可调用对象，并通过工作线程或工作进程池来管理它们的执行。<br>
