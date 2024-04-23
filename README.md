@@ -21,6 +21,7 @@
 CSDN      | "https://blog.csdn.net/weixin_43958105/article/details/114012590"             | ✅
 澎湃新闻    | "https://www.thepaper.cn/newsDetail_forward_27031399"                         | ✅
 github每日热门项目    | "https://github.com/trending/python?since=daily"                     | ✅
+selenium官方界面    | "https://www.selenium.dev/documentation/"                             | ✅
 
 
 ## 使用教程:
@@ -97,6 +98,14 @@ class BaiduSearchScraper(WebSeleniumBase):
 ```
 
 4. selenium对于浏览器的关闭和开启很敏感，使用时一定要注意，避免出错。
+
+5. 抓取访问受限的网站时，使用selenium需要开启代理吗？
+
+Selenium 是一个用于 **自动化网页浏览器操作** 的工具，主要用于测试网页应用。模拟的是打开浏览器操作的方式，如果你的浏览器默认是走代理的，代码中不需要再另外设置代理。<br>
+
+6. 抓取某些外网数据很慢，如果你其他各种渠道已经尝试过了，可以考虑更换代理节点试试。
+
+笔者的经验是: 同样是外网，抓取selenium官网的数据很快，但抓取github的数据很慢。<br>
 
 
 ## FAQ:

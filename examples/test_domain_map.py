@@ -15,7 +15,7 @@ from domain_map.domain_map_strategy import crawler_map
 
 print(f"爬虫分发映射为:\n{crawler_map}\n")
 
-url = "https://www.thepaper.cn/newsDetail_forward_27031399"
+url = "https://www.selenium.dev/documentation/"
 domain = extract_domain_from_url(url)
 print(f"{url} 的域名为:\n{domain}\n")
 

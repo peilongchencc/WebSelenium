@@ -8,6 +8,7 @@ from scraper.baijiahao.baijiahaoscraper import BaijiahaoScraper
 from scraper.csdn.csdnscraper import CsdnScraper
 from scraper.pengpaixinwen.pengpaixinwenscraper import PengpaixinwenScraper
 from scraper.github.githubscraper import GithubScraper
+from scraper.selenium_official.seleniumscraper import SeleniumScraper
 
 # 映射字典，将域名关联到相应的爬取类
 crawler_map = {
@@ -15,5 +16,6 @@ crawler_map = {
     'baijiahao.baidu.com': BaijiahaoScraper,
     'blog.csdn.net': CsdnScraper,
     'www.thepaper.cn': PengpaixinwenScraper,
-    'github.com': GithubScraper
+    'github.com': GithubScraper,
+    'www.selenium.dev': SeleniumScraper
 }
