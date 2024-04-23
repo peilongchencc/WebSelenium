@@ -36,7 +36,6 @@ def fetch_webpage_content(url):
         # 确保无论如何都关闭浏览器
         if driver:
             driver.quit()
-
     return
 
 if __name__ == "__main__":
